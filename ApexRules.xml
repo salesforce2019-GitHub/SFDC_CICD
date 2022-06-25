@@ -1,0 +1,627 @@
+<?xml version="1.0"?>
+<ruleset name="Apex Rules" xmlns="http://pmd.sourceforge.net/ruleset/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+
+<!--https://pmd.github.io/latest/pmd_rules_apex_bestpractices.html#apexassertionsshouldincludemessage -->
+
+<rule name="ApexAssertionsShouldIncludeMessage"
+	message="The second parameter of System.assert/third parameter of System.assertEquals/System.assertNotEquals is a message. Having a 				second/third parameter provides more information and makes it easier to debug the test failure and improves the readability of test output."
+	class="net.sourceforge.pmd.lang.apex.rule.bestpractices.ApexAssertionsShouldIncludeMessageRule">
+	<description>
+		The second parameter of System.assert/third parameter of System.assertEquals/System.assertNotEquals is a message. Having a second/third 			parameter provides more information and makes it easier to debug the test failure and improves the readability of test output.
+	</description>
+	<priority>3</priority>
+	<example>	
+	</example>	
+</rule>
+
+
+<rule name="ApexUnitTestClassShouldHaveAsserts"
+		message="Apex unit tests should include at least one assertion. This makes the tests more robust, and using assert with messages provide the developer a clearer idea of what the test does."
+		class="net.sourceforge.pmd.lang.apex.rule.bestpractices.ApexUnitTestClassShouldHaveAssertsRule">
+	<description>
+	Apex unit tests should include at least one assertion. This makes the tests more robust, and using assert with messages provide the developer a clearer idea of what the test does.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule name="ApexUnitTestMethodShouldHaveIsTestAnnotation"
+		message="Apex test methods should have @isTest annotation. As testMethod keyword is deprecated, Salesforce advices to use @isTest annotation for test class/methods."
+		class="net.sourceforge.pmd.lang.apex.rule.bestpractices.ApexUnitTestMethodShouldHaveIsTestAnnotationRule">
+	<description>
+	Apex test methods should have @isTest annotation. As testMethod keyword is deprecated, Salesforce advices to use @isTest annotation for test class/methods.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule name="ApexUnitTestShouldNotUseSeeAllDataTrue"
+		message="Apex unit tests should not use @isTest(seeAllData=true) because it opens up the existing database data for unexpected modification by tests."
+		class="net.sourceforge.pmd.lang.apex.rule.bestpractices.ApexUnitTestShouldNotUseSeeAllDataTrueRule">
+	<description>
+	Apex unit tests should not use @isTest(seeAllData=true) because it opens up the existing database data for unexpected modification by tests
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule name="AvoidGlobalModifier"
+		message="Global classes should be avoided (especially in managed packages) as they can never be deleted or changed in signature. Always check twice if something needs to be global. Many interfaces (e.g. Batch) required global modifiers in the past but don’t require this anymore. Don’t lock yourself in."
+		class="net.sourceforge.pmd.lang.apex.rule.bestpractices.AvoidGlobalModifierRule">
+	<description>
+	Global classes should be avoided (especially in managed packages) as they can never be deleted or changed in signature. Always check twice if something needs to be global. Many interfaces (e.g. Batch) required global modifiers in the past but don’t require this anymore. Don’t lock yourself in.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule name="AvoidLogicInTrigger"
+		message="As triggers do not allow methods like regular classes they are less flexible and suited to apply good encapsulation style. Therefore delegate the triggers work to a regular class (often called Trigger handler class)."
+		class="net.sourceforge.pmd.lang.apex.rule.bestpractices.AvoidLogicInTriggerRule">
+	<description>
+	As triggers do not allow methods like regular classes they are less flexible and suited to apply good encapsulation style. Therefore delegate the triggers work to a regular class (often called Trigger handler class).
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule ref="category/apex/bestpractices.xml/DebugsShouldUseLoggingLevel" name="DebugsShouldUseLoggingLevel"
+		message="A regular classes they are less flexible and suited to apply good encapsulation style. Therefore delegate the triggers work to a regular class (often called Trigger handler class)."
+		class="category/apex/bestpractices.xml/DebugsShouldUseLoggingLevel">
+	<description>
+	As triggers do not allow methods like regular classes they are less flexible and suited to apply good encapsulation style. Therefore delegate the triggers work to a regular class (often called Trigger handler class).
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  name="UnusedLocalVariable"
+		message="Detects when a local variable is declared and/or assigned but not used."
+		class="net.sourceforge.pmd.lang.apex.rule.bestpractices.UnusedLocalVariableRule">
+	<description>
+		Detects when a local variable is declared and/or assigned but not used.
+	</description>
+	<priority>5</priority>
+	<example></example>	
+</rule>
+
+<rule  name="ClassNamingConventions"
+		message="Configurable naming conventions for type declarations. This rule reports type declarations which do not match the regex that applies to their specific kind (e.g. enum or interface). Each regex can be configured through properties.
+		By default this rule uses the standard Apex naming convention (Pascal case)."
+		class="net.sourceforge.pmd.lang.apex.rule.codestyle.ClassNamingConventionsRule">
+	<description>
+		Configurable naming conventions for type declarations. This rule reports type declarations which do not match the regex that applies to their specific kind (e.g. enum or interface). Each regex can be configured through properties.
+By default this rule uses the standard Apex naming convention (Pascal case).
+	</description>
+	<priority>1</priority>
+	<example></example>	
+</rule>
+
+<rule  name="FieldDeclarationsShouldBeAtStart"
+		message="Field declarations should appear before method declarations within a class."
+		class="net.sourceforge.pmd.lang.apex.rule.codestyle.FieldDeclarationsShouldBeAtStartRule">
+	<description>
+		Field declarations should appear before method declarations within a class.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  name="FieldNamingConventions"
+		message="Configurable naming conventions for field declarations. This rule reports variable declarations which do not match the regex that applies to their specific kind —e.g. constants (static final), static field, final field. Each regex can be configured through properties."
+		class="net.sourceforge.pmd.lang.apex.rule.codestyle.FieldNamingConventionsRule">
+	<description>
+		Configurable naming conventions for field declarations. This rule reports variable declarations which do not match the regex that applies to their specific kind —e.g. constants (static final), static field, final field. Each regex can be configured through properties.
+	</description>
+	<priority>1</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/codestyle.xml/ForLoopsMustUseBraces" name="ForLoopsMustUseBraces"
+		message="Avoid using ‘for’ statements without using surrounding braces. If the code formatting or indentation is lost then it becomes difficult to separate the code being controlled from the rest."
+		class="category/apex/codestyle.xml/ForLoopsMustUseBraces">
+	<description>
+		Avoid using ‘for’ statements without using surrounding braces. If the code formatting or indentation is lost then it becomes difficult to separate the code being controlled from the rest.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  name="FormalParameterNamingConventions"
+		message="Configurable naming conventions for formal parameters of methods. This rule reports formal parameters which do not match the regex that applies to their specific kind (e.g. method parameter, or final method parameter). Each regex can be configured through properties."
+		class="net.sourceforge.pmd.lang.apex.rule.codestyle.FormalParameterNamingConventionsRule">
+	<description>
+		Configurable naming conventions for formal parameters of methods. This rule reports formal parameters which do not match the regex that applies to their specific kind (e.g. method parameter, or final method parameter). Each regex can be configured through properties.
+	</description>
+	<priority>1</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/codestyle.xml/IfElseStmtsMustUseBraces" name="IfElseStmtsMustUseBraces"
+		message="Avoid using if..else statements without using surrounding braces. If the code formatting or indentation is lost then it becomes difficult to separate the code being controlled from the rest."
+		class="category/apex/codestyle.xml/IfElseStmtsMustUseBraces">
+	<description>
+		Avoid using if..else statements without using surrounding braces. If the code formatting or indentation is lost then it becomes difficult to separate the code being controlled from the rest.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/codestyle.xml/IfStmtsMustUseBraces"  name="IfStmtsMustUseBraces"
+		message="Avoid using if statements without using braces to surround the code block. If the code formatting or indentation is lost then it becomes difficult to separate the code being controlled from the rest."
+		class="category/apex/codestyle.xml/IfStmtsMustUseBraces">
+	<description>
+		Avoid using if statements without using braces to surround the code block. If the code formatting or indentation is lost then it becomes difficult to separate the code being controlled from the rest.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  name="LocalVariableNamingConventions"
+		message="Configurable naming conventions for local variable declarations. This rule reports variable declarations which do not match the regex that applies to their specific kind (e.g. local variable, or final local variable). Each regex can be configured through properties."
+		class="net.sourceforge.pmd.lang.apex.rule.codestyle.LocalVariableNamingConventionsRule">
+	<description>
+		Configurable naming conventions for local variable declarations. This rule reports variable declarations which do not match the regex that applies to their specific kind (e.g. local variable, or final local variable). Each regex can be configured through properties.
+	</description>
+	<priority>1</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/codestyle.xml/MethodNamingConventions" name="MethodNamingConventions"
+		message="Configurable naming conventions for method declarations. This rule reports method declarations which do not match the regex that applies to their specific kind (e.g. static method, or test method). Each regex can be configured through properties.
+        By default this rule uses the standard Apex naming convention (Camel case)."
+		class="net.sourceforge.pmd.lang.apex.rule.codestyle.MethodNamingConventionsRule">
+	<description>
+		Configurable naming conventions for method declarations. This rule reports method declarations which do not match the regex that applies to their specific kind (e.g. static method, or test method). Each regex can be configured through properties.
+By default this rule uses the standard Apex naming convention (Camel case).
+	</description>
+	<priority>1</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/codestyle.xml/OneDeclarationPerLine" name="OneDeclarationPerLine"
+		message="Apex allows the use of several variables declaration of the same type on one line. However, it can lead to quite messy code. This rule looks for several declarations on the same line."
+		class="category/apex/codestyle.xml/OneDeclarationPerLine">
+	<description>
+		Apex allows the use of several variables declaration of the same type on one line. However, it can lead to quite messy code. This rule looks for several declarations on the same line.
+	</description>
+	<priority>1</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/codestyle.xml/PropertyNamingConventions" name="PropertyNamingConventions"
+		message="Configurable naming conventions for property declarations. This rule reports property declarations which do not match the regex that applies to their specific kind (e.g. static property, or instance property). Each regex can be configured through properties."
+		class="net.sourceforge.pmd.lang.apex.rule.codestyle.PropertyNamingConventionsRule">
+	<description>
+		Configurable naming conventions for property declarations. This rule reports property declarations which do not match the regex that applies to their specific kind (e.g. static property, or instance property). Each regex can be configured through properties.
+	</description>
+	<priority>1</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/codestyle.xml/WhileLoopsMustUseBraces" name="WhileLoopsMustUseBraces"
+		message="Avoid using ‘while’ statements without using braces to surround the code block. If the code formatting or indentation is lost then it becomes difficult to separate the code being controlled from the rest."
+		class="category/apex/codestyle.xml/WhileLoopsMustUseBraces">
+	<description>
+		Avoid using ‘while’ statements without using braces to surround the code block. If the code formatting or indentation is lost then it becomes difficult to separate the code being controlled from the rest.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/design.xml/AvoidDeeplyNestedIfStmts" name="AvoidDeeplyNestedIfStmts"
+		message="Avoid creating deeply nested if-then statements since they are harder to read and error-prone to maintain."
+		class="net.sourceforge.pmd.lang.apex.rule.design.AvoidDeeplyNestedIfStmtsRule">
+	<description>
+		Avoid creating deeply nested if-then statements since they are harder to read and error-prone to maintain.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/design.xml/CognitiveComplexity" name="CognitiveComplexity"
+		message="Methods that are highly complex are difficult to read and more costly to maintain. If you include too much decisional logic within a single method, you make its behavior hard to understand and more difficult to modify.
+        Cognitive complexity is a measure of how difficult it is for humans to read and understand a method. Code that contains a break in the control flow is more complex, whereas the use of language shorthands doesn’t increase the level of complexity. Nested control flows can make a method more difficult to understand, with each additional nesting of the control flow leading to an increase in cognitive complexity."
+		class="net.sourceforge.pmd.lang.apex.rule.design.CognitiveComplexityRule">
+	<description>
+		Methods that are highly complex are difficult to read and more costly to maintain. If you include too much decisional logic within a single method, you make its behavior hard to understand and more difficult to modify.
+Cognitive complexity is a measure of how difficult it is for humans to read and understand a method. Code that contains a break in the control flow is more complex, whereas the use of language shorthands doesn’t increase the level of complexity. Nested control flows can make a method more difficult to understand, with each additional nesting of the control flow leading to an increase in cognitive complexity.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/design.xml/CyclomaticComplexity"  name="CognitiveComplexity"
+		message="The complexity of methods directly affects maintenance costs and readability. Concentrating too much decisional logic in a single method makes its behaviour hard to read and change.
+        Cyclomatic complexity assesses the complexity of a method by counting the number of decision points in a method, plus one for the method entry. Decision points are places where the control flow jumps to another place in the program. As such, they include all control flow statements, such as ‘if’, ‘while’, ‘for’, and ‘case’."
+		class="net.sourceforge.pmd.lang.apex.rule.design.CyclomaticComplexityRule">
+	<description>
+		The complexity of methods directly affects maintenance costs and readability. Concentrating too much decisional logic in a single method makes its behaviour hard to read and change.
+Cyclomatic complexity assesses the complexity of a method by counting the number of decision points in a method, plus one for the method entry. Decision points are places where the control flow jumps to another place in the program. As such, they include all control flow statements, such as ‘if’, ‘while’, ‘for’, and ‘case’.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/design.xml/CyclomaticComplexity"  name="ExcessiveClassLength"
+        message="Excessive class file lengths are usually indications that the class may be burdened with excessive responsibilities that could be provided by external classes or functions. In breaking these methods apart the code becomes more managable and ripe for reuse."
+        class="net.sourceforge.pmd.lang.apex.rule.design.ExcessiveClassLengthRule">
+	<description>
+		Excessive class file lengths are usually indications that the class may be burdened with excessive responsibilities that could be provided by external classes or functions. In breaking these methods apart the code becomes more managable and ripe for reuse.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/design.xml/ExcessiveParameterList"  name="ExcessiveParameterList"
+        message="Methods with numerous parameters are a challenge to maintain, especially if most of them share the same datatype. These situations usually denote the need for new objects to wrap the numerous parameters."
+        class="net.sourceforge.pmd.lang.apex.rule.design.ExcessiveParameterListRule">
+	<description>
+		Methods with numerous parameters are a challenge to maintain, especially if most of them share the same datatype. These situations usually denote the need for new objects to wrap the numerous parameters.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/design.xml/ExcessivePublicCount"   name="ExcessivePublicCount"
+        message="Classes with large numbers of public methods and attributes require disproportionate testing efforts since combinational side effects grow rapidly and increase risk. Refactoring these classes into smaller ones not only increases testability and reliability but also allows new variations to be developed easily."
+        class="net.sourceforge.pmd.lang.apex.rule.design.ExcessivePublicCountRule">
+	<description>
+		Classes with large numbers of public methods and attributes require disproportionate testing efforts since combinational side effects grow rapidly and increase risk. Refactoring these classes into smaller ones not only increases testability and reliability but also allows new variations to be developed easily.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/design.xml/ExcessivePublicCount"   name="NcssConstructorCount"
+        message="This rule uses the NCSS (Non-Commenting Source Statements) algorithm to determine the number of lines of code for a given constructor. NCSS ignores comments, and counts actual statements. Using this algorithm, lines of code that are split are counted as one."
+        class="net.sourceforge.pmd.lang.apex.rule.design.NcssConstructorCountRule">
+	<description>
+		This rule uses the NCSS (Non-Commenting Source Statements) algorithm to determine the number of lines of code for a given constructor. NCSS ignores comments, and counts actual statements. Using this algorithm, lines of code that are split are counted as one.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/design.xml/NcssMethodCount"  name="NcssMethodCount"
+        message="This rule uses the NCSS (Non-Commenting Source Statements) algorithm to determine the number of lines of code for a given method. NCSS ignores comments, and counts actual statements. Using this algorithm, lines of code that are split are counted as one."
+        class="net.sourceforge.pmd.lang.apex.rule.design.NcssMethodCountRule">
+	<description>
+		This rule uses the NCSS (Non-Commenting Source Statements) algorithm to determine the number of lines of code for a given method. NCSS ignores comments, and counts actual statements. Using this algorithm, lines of code that are split are counted as one.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/design.xml/NcssTypeCount"  name="NcssTypeCount"
+        message="This rule uses the NCSS (Non-Commenting Source Statements) algorithm to determine the number of lines of code for a given type. NCSS ignores comments, and counts actual statements. Using this algorithm, lines of code that are split are counted as one."
+        class="net.sourceforge.pmd.lang.apex.rule.design.NcssTypeCountRule">
+	<description>
+		This rule uses the NCSS (Non-Commenting Source Statements) algorithm to determine the number of lines of code for a given type. NCSS ignores comments, and counts actual statements. Using this algorithm, lines of code that are split are counted as one.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/design.xml/StdCyclomaticComplexity"  name="StdCyclomaticComplexity"
+        message="Complexity directly affects maintenance costs is determined by the number of decision points in a method plus one for the method entry. The decision points include ‘if’, ‘while’, ‘for’, and ‘case labels’ calls. Generally, numbers ranging from 1-4 denote low complexity, 5-7 denote moderate complexity, 8-10 denote high complexity, and 11+ is very high complexity."
+        class="net.sourceforge.pmd.lang.apex.rule.design.StdCyclomaticComplexityRule">
+	<description>
+		Complexity directly affects maintenance costs is determined by the number of decision points in a method plus one for the method entry. The decision points include ‘if’, ‘while’, ‘for’, and ‘case labels’ calls. Generally, numbers ranging from 1-4 denote low complexity, 5-7 denote moderate complexity, 8-10 denote high complexity, and 11+ is very high complexity.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/design.xml/TooManyFields"  name="TooManyFields"
+        message="Classes that have too many fields can become unwieldy and could be redesigned to have fewer fields, possibly through grouping related fields in new objects. For example, a class with individual city/state/zip fields could park them within a single Address field."
+        class="net.sourceforge.pmd.lang.apex.rule.design.TooManyFieldsRule">
+	<description>
+		Classes that have too many fields can become unwieldy and could be redesigned to have fewer fields, possibly through grouping related fields in new objects. For example, a class with individual city/state/zip fields could park them within a single Address field.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/documentation.xml/ApexDoc" name="ApexDoc"
+        message="ApexDoc comments are present for classes, methods, and properties that are public or global, excluding overrides and test classes (as well as the contents of test classes).ApexDoc comments should contain @description.ApexDoc comments on non-void, non-constructor methods should contain @return.ApexDoc comments on void or constructor methods should not contain @return.ApexDoc comments on methods with parameters should contain @param for each parameter, in the same order as the method signature."
+        class="net.sourceforge.pmd.lang.apex.rule.documentation.ApexDocRule">
+	<description>ApexDoc comments are present for classes, methods, and properties that are public or global, excluding overrides and test classes (as well as the contents of test classes).ApexDoc comments should contain @description.ApexDoc comments on non-void, non-constructor methods should contain @return.ApexDoc comments on void or constructor methods should not contain @return.ApexDoc comments on methods with parameters should contain @param for each parameter, in the same order as the method signature.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/errorprone.xml/ApexCSRF" name="ApexCSRF"
+        message="Having DML operations in Apex class constructor or initializers can have unexpected side effects: By just accessing a page, the DML statements would be executed and the database would be modified. Just querying the database is permitted.
+        In addition to constructors and initializers, any method called init is checked as well.
+        Salesforce Apex already protects against this scenario and raises a runtime exception."
+        class="net.sourceforge.pmd.lang.apex.rule.errorprone.ApexCSRFRule">
+	<description>
+		Having DML operations in Apex class constructor or initializers can have unexpected side effects: By just accessing a page, the DML statements would be executed and the database would be modified. Just querying the database is permitted.
+In addition to constructors and initializers, any method called init is checked as well.
+Salesforce Apex already protects against this scenario and raises a runtime exception.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/errorprone.xml/AvoidDirectAccessTriggerMap" name="AvoidDirectAccessTriggerMap"
+        message="Avoid directly accessing Trigger.old and Trigger.new as it can lead to a bug. Triggers should be bulkified and iterate through the map to handle the actions for each item separately."
+        class="category/apex/errorprone.xml/AvoidDirectAccessTriggerMap">
+	<description>
+		Avoid directly accessing Trigger.old and Trigger.new as it can lead to a bug. Triggers should be bulkified and iterate through the map to handle the actions for each item separately.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/errorprone.xml/AvoidHardcodingId" name="AvoidHardcodingId"
+        message="When deploying Apex code between sandbox and production environments, or installing Force.com AppExchange packages, it is essential to avoid hardcoding IDs in the Apex code. By doing so, if the record IDs change between environments, the logic can dynamically identify the proper data to operate against and not fail."
+        class="net.sourceforge.pmd.lang.apex.rule.errorprone.AvoidHardcodingIdRule">
+	<description>
+		When deploying Apex code between sandbox and production environments, or installing Force.com AppExchange packages, it is essential to avoid hardcoding IDs in the Apex code. By doing so, if the record IDs change between environments, the logic can dynamically identify the proper data to operate against and not fail.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/errorprone.xml/AvoidNonExistentAnnotations" name="AvoidNonExistentAnnotations"
+        message="Apex supported non existent annotations for legacy reasons. In the future, use of such non-existent annotations could result in broken apex code that will not compile. This will prevent users of garbage annotations from being able to use legitimate annotations added to Apex in the future. A full list of supported annotations can be found at https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation.htm"
+        class="net.sourceforge.pmd.lang.apex.rule.errorprone.AvoidNonExistentAnnotationsRule">
+	<description>
+		Apex supported non existent annotations for legacy reasons. In the future, use of such non-existent annotations could result in broken apex code that will not compile. This will prevent users of garbage annotations from being able to use legitimate annotations added to Apex in the future. A full list of supported annotations can be found at https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation.htm
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/errorprone.xml/EmptyCatchBlock" name="EmptyCatchBlock"
+        message="Empty Catch Block finds instances where an exception is caught, but nothing is done. In most circumstances, this swallows an exception which should either be acted on or reported."
+        class="category/apex/errorprone.xml/EmptyCatchBlock">
+	<description>
+		Empty Catch Block finds instances where an exception is caught, but nothing is done. In most circumstances, this swallows an exception which should either be acted on or reported.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/errorprone.xml/EmptyIfStmt" name="EmptyIfStmt"
+        message="Empty If Statement finds instances where a condition is checked but nothing is done about it."
+        class="category/apex/errorprone.xml/EmptyIfStmt">
+	<description>
+		Empty If Statement finds instances where a condition is checked but nothing is done about it.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/errorprone.xml/EmptyStatementBlock" name="EmptyStatementBlock"
+        message="Empty block statements serve no purpose and should be removed."
+        class="category/apex/errorprone.xml/EmptyStatementBlock">
+	<description>
+		Empty block statements serve no purpose and should be removed.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/errorprone.xml/EmptyTryOrFinallyBlock" name="EmptyTryOrFinallyBlock"
+        message="Avoid empty try or finally blocks - what’s the point?"
+        class="category/apex/errorprone.xml/EmptyTryOrFinallyBlock">
+	<description>
+		Avoid empty try or finally blocks - what’s the point?
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/errorprone.xml/EmptyWhileStmt" name="EmptyWhileStmt"
+        message="Empty While Statement finds all instances where a while statement does nothing. If it is a timing loop, then you should use Thread.sleep() for it; if it is a while loop that does a lot in the exit expression, rewrite it to make it clearer."
+        class="category/apex/errorprone.xml/EmptyWhileStmt">
+	<description>
+		Empty While Statement finds all instances where a while statement does nothing. If it is a timing loop, then you should use Thread.sleep() for it; if it is a while loop that does a lot in the exit expression, rewrite it to make it clearer.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/errorprone.xml/MethodWithSameNameAsEnclosingClass" name="MethodWithSameNameAsEnclosingClass"
+        message="Non-constructor methods should not have the same name as the enclosing class."
+        class="net.sourceforge.pmd.lang.apex.rule.errorprone.MethodWithSameNameAsEnclosingClassRule">
+	<description>
+		Non-constructor methods should not have the same name as the enclosing class.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/errorprone.xml/TestMethodsMustBeInTestClasses" name="TestMethodsMustBeInTestClasses"
+        message="Test methods marked as a testMethod or annotated with @IsTest, but not residing in a test class should be moved to a proper class or have the @IsTest annotation added to the class.
+
+        Support for tests inside functional classes was removed in Spring-13 (API Version 27.0), making classes that violate this rule fail compile-time. This rule is mostly usable when dealing with legacy code."
+        class="category/apex/errorprone.xml/TestMethodsMustBeInTestClasses">
+	<description>
+		Test methods marked as a testMethod or annotated with @IsTest, but not residing in a test class should be moved to a proper class or have the @IsTest annotation added to the class.
+
+Support for tests inside functional classes was removed in Spring-13 (API Version 27.0), making classes that violate this rule fail compile-time. This rule is mostly usable when dealing with legacy code.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/performance.xml/AvoidDmlStatementsInLoops" name="AvoidDmlStatementsInLoops"
+        message="Avoid DML statements inside loops to avoid hitting the DML governor limit. Instead, try to batch up the data into a list and invoke your DML once on that list of data outside the loop."
+        class="net.sourceforge.pmd.lang.apex.rule.performance.AvoidDmlStatementsInLoopsRule">
+	<description>
+		Avoid DML statements inside loops to avoid hitting the DML governor limit. Instead, try to batch up the data into a list and invoke your DML once on that list of data outside the loop.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/performance.xml/AvoidSoqlInLoops" name="AvoidSoqlInLoops"
+        message="New objects created within loops should be checked to see if they can created outside them and reused."
+        class="net.sourceforge.pmd.lang.apex.rule.performance.AvoidSoqlInLoopsRule">
+	<description>
+		New objects created within loops should be checked to see if they can created outside them and reused.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/performance.xml/AvoidSoslInLoops" name="AvoidSoslInLoops"
+        message="Sosl calls within loops can cause governor limit exceptions."
+        class="net.sourceforge.pmd.lang.apex.rule.performance.AvoidSoslInLoopsRule">
+	<description>
+		Sosl calls within loops can cause governor limit exceptions.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/security.xml/ApexBadCrypto"  name="ApexBadCrypto"
+        message="The rule makes sure you are using randomly generated IVs and keys for Crypto calls. Hard-wiring these values greatly compromises the security of encrypted data"
+        class="net.sourceforge.pmd.lang.apex.rule.security.ApexBadCryptoRule">
+	<description>
+		The rule makes sure you are using randomly generated IVs and keys for Crypto calls. Hard-wiring these values greatly compromises the security of encrypted data
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/security.xml/ApexCRUDViolation"  name="ApexCRUDViolation"
+        message="The rule validates you are checking for access permissions before a SOQL/SOSL/DML operation. Since Apex runs in system mode not having proper permissions checks results in escalation of privilege and may produce runtime errors. This check forces you to handle such scenarios."
+        class="net.sourceforge.pmd.lang.apex.rule.security.ApexCRUDViolationRule">
+	<description>
+		The rule validates you are checking for access permissions before a SOQL/SOSL/DML operation. Since Apex runs in system mode not having proper permissions checks results in escalation of privilege and may produce runtime errors. This check forces you to handle such scenarios.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/security.xml/ApexDangerousMethods"  name="ApexDangerousMethods"
+        message="Checks against calling dangerous methods.
+        For the time being, it reports:
+        Against FinancialForce’s Configuration.disableTriggerCRUDSecurity(). Disabling CRUD security opens the door to several attacks and requires manual validation, which is unreliable.
+        Calling System.debug passing sensitive data as parameter, which could lead to exposure of private data."
+        class="net.sourceforge.pmd.lang.apex.rule.security.ApexDangerousMethodsRule">
+	<description>
+		Checks against calling dangerous methods
+For the time being, it reports:
+Against FinancialForce’s Configuration.disableTriggerCRUDSecurity(). Disabling CRUD security opens the door to several attacks and requires manual validation, which is unreliable.
+Calling System.debug passing sensitive data as parameter, which could lead to exposure of private data.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/security.xml/ApexInsecureEndpoint"   name="ApexInsecureEndpoint"
+        message="Checks against accessing endpoints under plain http. You should always use https for security."
+        class="net.sourceforge.pmd.lang.apex.rule.security.ApexInsecureEndpointRule">
+	<description>
+		Checks against accessing endpoints under plain http. You should always use https for security.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/security.xml/ApexOpenRedirect"  name="ApexOpenRedirect"
+        message="Checks against redirects to user-controlled locations. This prevents attackers from redirecting users to phishing sites."
+        class="net.sourceforge.pmd.lang.apex.rule.security.ApexOpenRedirectRule">
+	<description>
+		Checks against redirects to user-controlled locations. This prevents attackers from redirecting users to phishing sites.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/security.xml/ApexSharingViolations"  name="ApexSharingViolations"
+        message="Detect classes declared without explicit sharing mode if DML methods are used. This forces the developer to take access restrictions into account before modifying objects."
+        class="net.sourceforge.pmd.lang.apex.rule.security.ApexSharingViolationsRule">
+	<description>
+		Detect classes declared without explicit sharing mode if DML methods are used. This forces the developer to take access restrictions into account before modifying objects.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+
+<rule  ref="category/apex/security.xml/ApexSOQLInjection"  name="ApexSOQLInjection"
+        message="Detects the usage of untrusted / unescaped variables in DML queries."
+        class="net.sourceforge.pmd.lang.apex.rule.security.ApexSOQLInjectionRule">
+	<description>
+		Detects the usage of untrusted / unescaped variables in DML queries.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/security.xml/ApexSuggestUsingNamedCred"  name="ApexSuggestUsingNamedCred"
+        message="Detects hardcoded credentials used in requests to an endpoint.
+
+        You should refrain from hardcoding credentials:
+        
+        They are hard to mantain by being mixed in application code
+        Particularly hard to update them when used from different classes
+        Granting a developer access to the codebase means granting knowledge of credentials, keeping a two-level access is not possible.
+        Using different credentials for different environments is troublesome and error-prone.
+        Instead, you should use Named Credentials and a callout endpoint."
+        class="net.sourceforge.pmd.lang.apex.rule.security.ApexSuggestUsingNamedCredRule">
+	<description>
+		Detects hardcoded credentials used in requests to an endpoint.
+
+You should refrain from hardcoding credentials:
+
+They are hard to mantain by being mixed in application code
+Particularly hard to update them when used from different classes
+Granting a developer access to the codebase means granting knowledge of credentials, keeping a two-level access is not possible.
+Using different credentials for different environments is troublesome and error-prone.
+Instead, you should use Named Credentials and a callout endpoint.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+
+<rule  ref="category/apex/security.xml/ApexXSSFromEscapeFalse"  name="ApexXSSFromEscapeFalse"
+        message="Reports on calls to addError with disabled escaping. The message passed to addError will be displayed directly to the user in the UI, making it prime ground for XSS attacks if unescaped."
+        class="net.sourceforge.pmd.lang.apex.rule.security.ApexXSSFromEscapeFalseRule">
+	<description>
+		Reports on calls to addError with disabled escaping. The message passed to addError will be displayed directly to the user in the UI, making it prime ground for XSS attacks if unescaped.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+<rule  ref="category/apex/security.xml/ApexXSSFromURLParam"  name="ApexXSSFromURLParam"
+        message="Makes sure that all values obtained from URL parameters are properly escaped / sanitized to avoid XSS attacks."
+        class="net.sourceforge.pmd.lang.apex.rule.security.ApexXSSFromURLParamRule">
+	<description>
+		Makes sure that all values obtained from URL parameters are properly escaped / sanitized to avoid XSS attacks.
+	</description>
+	<priority>3</priority>
+	<example></example>	
+</rule>
+
+</ruleset>
