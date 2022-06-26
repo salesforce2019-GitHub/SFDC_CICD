@@ -5,7 +5,7 @@
 
 <rule name="ApexAssertionsShouldIncludeMessage"
 	message="The second parameter of System.assert/third parameter of System.assertEquals/System.assertNotEquals is a message. Having a 				second/third parameter provides more information and makes it easier to debug the test failure and improves the readability of test output."
-	class="net.sourceforge.pmd.lang.apex.rule.bestpractices.ApexAssertionsShouldIncludeMessageRule">
+	class="net.sourceforge.pmd.lang.apex.rule.bestpractices.ApexUnitTestClassShouldHaveAssertsRule">       
 	<description>
 		The second parameter of System.assert/third parameter of System.assertEquals/System.assertNotEquals is a message. Having a second/third 			parameter provides more information and makes it easier to debug the test failure and improves the readability of test output.
 	</description>
